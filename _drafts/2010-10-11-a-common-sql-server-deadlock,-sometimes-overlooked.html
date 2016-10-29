@@ -1,0 +1,11 @@
+---
+layout: post
+title: A common SQL Server deadlock, sometimes overlooked
+date: '2010-10-11T21:44:00.003-05:00'
+author: Steve Ash
+tags: 
+modified_time: '2010-10-11T22:10:57.212-05:00'
+blogger_id: tag:blogger.com,1999:blog-4471109663192942674.post-7241404221849551979
+---
+
+Anyone who has worked with Microsoft SQL Server with applications that do significant volume of transaction processing work is probably familiar with the dreaded: <br /><br /><blockquote>Transaction (Process ID 42) was deadlocked on lock resources with another process and has been chosen as the deadlock victim</blockquote><br /><br />This is the message can be a bit depressing on first glance.  So this post will document a case study of a very common deadlock scenario under default circumstances.  There are already plenty that go through this, but few that talk specifically about the fact that it only takes one writing transaction (not two as intuitively believed) to make a deadlock.  Let me repeat this:<br /><b>Given two transactions, only one of them needs to be a writing transaction (update, insert, delete) for a deadlock to occur</b><br />Intuitively, one expects there to be two writers involved, which get into a "deadly" embrace.  As we will see, there is still a deadly embrace, but it doesn't have to be with two writers, just one is enough.<br /><br />Consider 

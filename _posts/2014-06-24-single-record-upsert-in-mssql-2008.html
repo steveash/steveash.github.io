@@ -1,0 +1,12 @@
+---
+layout: post
+title: Single record UPSERT in MSSQL 2008+
+date: '2014-06-24T14:58:00.000-05:00'
+author: Steve Ash
+tags: 
+modified_time: '2014-06-24T14:58:07.949-05:00'
+blogger_id: tag:blogger.com,1999:blog-4471109663192942674.post-7831401469922560697
+blogger_orig_url: http://blog.manycupsofcoffee.com/2014/06/single-record-upsert-in-mssql-2008.html
+---
+
+I guess I just don't use SQL's MERGE statement enough to remember its syntax off the top of my head.  When I look at the <a href="http://msdn.microsoft.com/en-us/library/bb510625.aspx">Microsoft documentation</a> for it, I can't find just a simple example to do a single record UPSERT.  When I google, I don't get any brief blog posts that show it.  So here's a brief one to add to the pile: <br /><br />Table:<br /><br /><b>DATA_VERSION</b><br /><b>datakey varchar(16) not null primary key,</b><br /><b>seqno bigint not null,</b><br /><b>last_updated datetime not null</b><br /><b><br /></b>The table just keeps track of sequence numbers for things identified by 'datakey'. &nbsp;The first time we want to increment a value for a key we need to insert a new record with starting with seqno = 1 then every time after that we just want to increment the existing row.<br /><br />MSSQL: <br /><script type="syntaxhighlighter" class="brush: sql"><![CDATA[ -- the particular key you want to update is 'somekey' MERGE DATA_VERSION t USING (SELECT 'somekey' as datakey) as s   on (t.datakey = s.datakey) WHEN MATCHED THEN   UPDATE SET t.version = t.version + 1, t.last_updated = getdate() WHEN NOT MATCHED THEN   INSERT (datakey, version, last_updated) VALUES ('somekey', 1, getdate()) ; ]]></script>

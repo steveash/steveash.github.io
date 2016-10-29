@@ -1,0 +1,17 @@
+---
+layout: post
+title: Bushwhacker to help team members debug unit test failures
+date: '2014-08-24T15:20:00.003-05:00'
+author: Steve Ash
+tags:
+- unit testing
+- debugging
+- bushwhacker
+- exception
+- java
+modified_time: '2014-08-24T15:20:51.041-05:00'
+blogger_id: tag:blogger.com,1999:blog-4471109663192942674.post-4138551964506250
+blogger_orig_url: http://blog.manycupsofcoffee.com/2014/08/bushwhacker-to-help-team-members-debug.html
+---
+
+Right now I'm working on a project with a few people who have never worked in Java before.  There have been times where they'll experience some problem that they can't easily figure out.  They send me the stack trace and instantly I know what the problem is.  I wanted a simple way to automate this.<br /><br />So I created <b><a href="https://github.com/steveash/bushwhacker">Bushwhacker</a></b> a simple library to help provide more helpful messages at development time. &nbsp;Senior members of the team edit and maintain a simple xml file that describes rules to detect particular exceptions and either replace or enhance the exception message in some way. &nbsp;The rules are fairly sophisticated -- allowing you to, for example, only detect IllegalArgumentException if it was throw from a stack frame from MyClassWhatever. &nbsp;Since the xml rules file is read off of the classpath, you can version the XML file along with your source code (in src/test/resources for example). &nbsp;And you can even maintain multiple rules files for different modules and compose them all together. &nbsp;So if there are common pitfalls in your corporate "commons" module you can keep the bushwhacker rules for it there, and put your team's additional rules in your module.<br /><br />It's on Maven Central Repo so its easy to add to your project.  Check out usage instructions here: <a href="https://github.com/steveash/bushwhacker">https://github.com/steveash/bushwhacker</a><br /><br />Here's a few of the rules that we're using right now:<br /><br /><br /><script class="brush: xml" type="syntaxhighlighter"><![CDATA[ <exception>  <matches>        <exceptionclass>org.springframework.beans.factory.NoSuchBeanDefinitionException</exceptionClass>    <calledfrom>org.springframework.transaction.aspectj.AbstractTransactionAspect*</calledFrom>    <messagematches>.*No qualifying bean of type.*PlatformTransactionManager.*</messageMatches>  </matches>  <action>    <addhint>      This usually happens when your unit test extends from the wrong test fixture.  Since you       are using something that needs the database, extend from ExternalDbFraudTestFixture.  You       might not even realize that your trying to use the database, but some code is going over an       @Transactional which is causing it to try and use the database.     </addHint>  </action></exception><exception>  <matches>    <exceptionclass>java.lang.IllegalArgumentException</exceptionClass>    <calledfrom>org.jooq.impl.Utils*</calledFrom>    <messagematches>.*Field.*is not contained in Row.*</messageMatches>  </matches>  <action>    <addhint>      Check the jooq query's select list- you probably forgot to add a field to the SELECT.  A jooq query is just       like a SQL query you select certain columns and you get a result set of rows.  If you ask that resultset for       a column that isn't included in the SELECT list then you will see this exception.     </addHint>  </action></exception>]]></script>

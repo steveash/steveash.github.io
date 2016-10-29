@@ -1,0 +1,12 @@
+---
+layout: post
+title: Factory pattern, coupling, and OCP
+date: '2013-08-04T16:33:00.000-05:00'
+author: Steve Ash
+tags: 
+modified_time: '2013-08-04T16:33:04.256-05:00'
+blogger_id: tag:blogger.com,1999:blog-4471109663192942674.post-5956671553533324544
+blogger_orig_url: http://blog.manycupsofcoffee.com/2013/08/factory-pattern-coupling-and-ocp.html
+---
+
+So many factories... <br/>As good agile craftsmen, we try to build software that is easy to change.  We adopt design guidelines such as KISS and DRY.  KISS imploring us to remember that simpler things are easier to reason about and easier to change.  What does simple mean here?  Rich Hickey's use of the word "complect" meaning "to braid together" seems like a good one.  When you braid things together, they become intertwined -- hard to break apart.  You can't reason about the individual components anymore -- you have to reason about the two braided together as one.  Any additional complexity in just one of those parts now necessarily impacts the complexity in the other.  Preventing things from being braided allows you to just worry about the simpler individual parts.   <br/>When we design software we design "abstractions" to encapsulate complexity: these are classes with interfaces in object-oriented paradigms and functions and/or type classes play some of these roles in functional languages.    

@@ -1,0 +1,11 @@
+---
+layout: post
+title: Multi-tier application + database deadlock or why databases aren't queues (part2)
+date: '2012-01-12T08:21:00.000-06:00'
+author: Steve Ash
+tags: 
+modified_time: '2012-01-12T08:21:40.289-06:00'
+blogger_id: tag:blogger.com,1999:blog-4471109663192942674.post-8499189777711210958
+---
+
+In <a href="http://manycupsofcoffee.blogspot.com/2012/01/multi-tier-application-database.html">part 1</a> I setup the problem, described the initial symptom, and my root cause analysis of the initial symptom.  We discovered that my reader query was filling up the network buffer, getting suspended while holding locks, which cause the subsequent writes to block.  Since my application threads read a chunk (from this separate reader query connection), then went to go update in <i>another</i> connection, all the application threads got stuck and the application got into a state of "deadlock" (by definition, not strictly the "typical" MSSQL lock deadlock).  <h3>So what to do?</h3>Well the reason
