@@ -1,33 +1,24 @@
 ---
 layout: page
-title: About 
-permalink: /about/
+title: About
+tags: [about, resume, cv]
+date: 2016-10-30
+comments: false
 ---
-
-- [GitHub](https://github.com/steveash)
-- [LinkedIn](https://www.linkedin.com/in/ashsteve)
-- Twitter [@steve_ash](https://twitter.com/steve_ash)
-- [Google+](https://plus.google.com/+SteveAsh823/about)
 
 By day I am a Software Architect for ARGO Data.  I lead the "Skunkworks" R&D team.  We work on interesting problems in banking and health care using distributed systems, artificial intelligence, natural language processing, and data mining.  
 
-Here's some problems I've worked on:
+Here are some problems that I've worked on:
 
-* Determining if two medical records refer to the same real world person using tons of data mined reference information (about names, cultures, phonetics), a bajillion heuristics, and some fancy math.
+* Determining if two medical records refer to the same real world person using tons of data mined reference information (about names, cultures, phonetics), a bajillion heuristics, and some fancy math. This is running in production in numerous health care facilities in Texas, Oklahoma, New York, and California.
 * Building a better address parser using modern machine learning and NLP (patented).
-* Detecting check fraud in banking transactions.
+* Detecting check fraud in banking transactions. This is running in production in a number of banks in the United States and Canada.
 * Scalable machine learning using Spark Streaming + Cassandra
 * String similarity measurement and clustering at scale (patented).
-* Moving tens of millions of check images across the top 50 banks in the US every night
+* Moving tens of millions of check images across the top 50 banks in the US every night.
 * Doing all of the above at high throughput and low latency in distributed clusters of machines.
-* We've also done a lot of nitty gritty integration libraries for other teams in our company: marshalling between platforms; C# + JVM stuff, etc.
+* A number of nitty gritty integration libraries for various IPC and RPC scenerios: marshalling between platforms like C# + JVM stuff, etc.
 
-My academic background covers a wide range:
-
-* low level database work -- enhancing database query optimizers and storage subsystems for SSDs
-* distributed systems -- implementing 2 phase commit protocols in a distributed hash table system
-* challenging NLP problems -- grapheme to phoneme transduction in multiple languages using probabilistic graphical models
-* similarity problems -- using probabilistic models and a complicated data pipelines to do large scale demographic matching, improving the state of the art
 
 ### Technology
 
@@ -35,6 +26,19 @@ My academic background covers a wide range:
 * **Infrastructure**: Spark, Spark Streaming, Hadoop, ELK, Elasticsearch, Docker
 * **Storage**: Cassandra, GridGain/Ignite, HDFS, Kafka, MSSQL, Postgres, Oracle
 * **Data Mining, Machine Learning**: KNIME, Weka, Mallet, scikit-learn, Factorie, NLTK, Deeplearning4j
+
+### Education
+
+* **PhD, Computer Science**. University of Memphis. 2017 (in progress).
+* **MS, Computer Science**. University of Memphis. 2012.
+* **BA, Computer Science**. Rhodes College. 2006.
+
+My academic background covers a wide range of computer science topics:
+
+* low level database work -- enhancing database query optimizers and storage subsystems for SSDs
+* distributed systems -- implementing 2 phase commit protocols in a distributed hash table system
+* challenging NLP problems -- grapheme to phoneme transduction in multiple languages using probabilistic graphical models
+* similarity problems -- using probabilistic models and a complicated data pipelines to do large scale demographic matching, improving the state of the art
 
 ### Publications
 

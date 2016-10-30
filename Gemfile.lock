@@ -135,7 +135,10 @@ PLATFORMS
 
 DEPENDENCIES
   github-pages
-  minima
+  jekyll-feed
+  jekyll-gist
+  jekyll-mentions
+  jekyll-sitemap
 
 RUBY VERSION
    ruby 2.3.1p112

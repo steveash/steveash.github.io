@@ -14,18 +14,86 @@
 # You can create any custom variable you would like, and they will be accessible
 # in the templates via {{ site.myvariable }}.
 title: Many Cups of Coffee
+bio: Steve Ash
 email: stevemash@gmail.com
 description: > # this means to ignore newlines until "baseurl:"
-  Hi I'm Steve: by day I'm a machine learning engineer and software architect; by night I'm a PhD candidate in Computer Science.
+  Hi! I'm Steve: by day I'm a machine learning engineer and software architect; by night I'm a PhD candidate in Computer Science.
 baseurl: "" # the subpath of your site, e.g. /blog
-#url: "http://manycupsofcoffee.com" # the base hostname & protocol for your site
-#url: "http://localhost:4000" # the base hostname & protocol for your site
-url: "//www.manycupsofcoffee.com" # the base hostname & protocol for your site
+
+reading_time:       true
+words_per_minute:   200
+logo:               'assets/img/stevecircle.png'
+background:         'assets/img/shelbyfarms.jpg'
+tiled_bg:           false   # Set this true if you want to tile your background image, otherwise it will be covered
+locale:             en_US
+
+url: "//localhost:4000" # the base hostname & protocol for your site
+#url: "//www.manycupsofcoffee.com" # the base hostname & protocol for your site
 twitter_username: steve_ash
 github_username:  steveash
 
 google-analytics: UA-86538467-1
 
-# Build settings
-markdown: kramdown
-theme: minima
+# Jekyll
+permalink:          /:title/
+markdown:           kramdown
+highlighter:        rouge
+kramdown:
+  auto_ids:         true
+  footnote_nr:      1
+  entity_output:    as_char
+  toc_levels:       1..6
+  enable_coderay:   false
+mathjax:            true
+sass:
+  sass_dir:         _sass
+  style:            compressed
+
+# Comments
+disqus_shortname:   steveash
+
+# Social
+# if you don't have any of social below, comment the line.
+google:
+  plus: SteveAsh823
+  #analytics:
+  #verify:
+  #ad-client:
+  #ad-slot:
+#bing-verify:
+email: stevemash@gmail.com
+twitter:            steve_ash
+facebook:           ash.steve
+github:             steveash
+stackoverflow:     663759/steve-ash
+linkedin:          ashsteve
+#xing:              username
+instagram:          steveash83
+#lastfm:            username
+#tumblr:            username
+#pinterest:         username
+#foursquare:        username
+#steam:              username
+#dribbble:          username
+youtube:           MalcoSteve
+#soundcloud:        username
+#weibo:             username
+#flickr:            username
+#codepen:           username
+#keybase:           username
+#xmpp:              username@server.com
+#hackernews:        username
+
+# Gems
+gems:
+  - jekyll-mentions
+  - jekyll-feed
+  - jekyll-sitemap
+  - jekyll-gist
+
+jekyll-mentions:
+    base_url: https://github.com
+
+# Exclude list
+exclude: [README.md, Gemfile, Gemfile.lock, node_modules, gulpfile.js, package.json, _site, src, vendor, CNAME, LICENSE, Rakefile]
+
