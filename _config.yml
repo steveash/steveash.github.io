@@ -27,8 +27,8 @@ background:         'assets/img/shelbyfarms.jpg'
 tiled_bg:           false   # Set this true if you want to tile your background image, otherwise it will be covered
 locale:             en_US
 
-url: "//localhost:4000" # the base hostname & protocol for your site
-#url: "//www.manycupsofcoffee.com" # the base hostname & protocol for your site
+#url: "//localhost:4000" # the base hostname & protocol for your site
+url: "//www.manycupsofcoffee.com" # the base hostname & protocol for your site
 twitter_username: steve_ash
 github_username:  steveash
 
