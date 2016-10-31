@@ -11,6 +11,8 @@ sitemap: false
  *
 */
 
+$bgglass: "{{ "/assets/img/shelbyfarms_glass.jpg" | prepend: site.baseurl }}";
+
 // Partials
 @import "variables";
 @import "mixins";

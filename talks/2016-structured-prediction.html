@@ -1,0 +1,92 @@
+---
+layout: slides
+title: Intro to Structured Prediction in 3 Acts
+description: Introduction to structured prediction showing 3 methods used to solve it in historical order
+theme: sky
+transition: none
+permalink: /talks/2016-structured-prediction
+---
+
+<section data-markdown>
+## Intro to Structured Prediction in 3 Acts
+
+Steve Ash
+
+[www.manycupsofcoffee.com](www.manycupsofcoffee.com)
+</section>
+
+<section data-markdown>
+### About Me
+
+* BA, MS, PhD (in Spring '17) Computer Science
+* 10 years building banking and healthcare software
+* 5 years leading a "skunkworks" R&amp;D team
+</section>
+
+<section data-markdown>
+### Agenda
+
+* What is Structured Prediction?
+* **Act 1**: How to solve this problem in 1996? 
+    * _generative models_
+
+* **Act 2**: How to solve this problem in 2006? 
+    * _discriminative models_
+
+* **Act 3**: How to solve this problem in 2016?
+    * _recurrent neural networks_
+
+</section>
+
+<section data-markdown>
+### What is Structured Prediction
+
+Common machine learning tasks:
+* **Classification**: input data to fixed number of output classes/categories
+   * Is this credit card transaction fraudulent?
+   * Does this patient have liver disease?
+
+* **Regression**: input data to continuous output
+   * Prospective student's future GPA based on information from his/her college application
+
+What about classification over a _sequence_ of information?
+</section>
+
+<section data-markdown>
+### What is Structured Prediction
+
+Assign part-of-speech tags to sequence of words: 
+
+"Steve plays piano sometimes"
+
+![Parts of Speech]({{ "/talks/pred-steve-pos-1.png" | prepend: site.baseurl }})
+
+</section>
+
+<section data-markdown>
+
+### What is Structured Prediction
+
+The sequence of words &mdash; i.e. the _structure_ &mdash; affects the part-of-speech. We need to incorporate this structure into the predictive method that we want to use in order to improve our accuracy. 
+
+Without the structure we can't disambiguate words that have more than one part-of-speech:
+
+> "Will Bob will the will to Will?"
+
+</section>
+
+<section data-markdown>
+# Act 1
+Generative Models
+</section>
+
+<section data-markdown>
+### Generative Models 
+In the part-of-speech example given previously, we had a sequence of words and a seqence of POS tags.
+
+* `$X_t$` = the word at time `$t$` 
+* `$Y_t$` = the predicted POS tag at time `$t$`
+
+In probabilistic modelling we model our inputs and outputs as _random variables_. In this case the random variable `$X_t$` is a _categorical_ variable that takes as its value any one of the words in the english language.
+
+</section>

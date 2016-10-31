@@ -20,7 +20,8 @@ body {
 	background-position: center center;
 	background-attachment: fixed;
 	@media #{$small} {
-	    background-image: none !important;
+	    //background-image: none !important;
+	    background-image:url($bgglass) !important;
 		background: $white;
 	}
 }
