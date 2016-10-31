@@ -51,7 +51,6 @@ Common machine learning tasks:
 
 What about classification over a _sequence_ of information?
 </section>
-
 <section data-markdown>
 ### What is Structured Prediction
 
@@ -62,7 +61,6 @@ Assign part-of-speech tags to sequence of words:
 ![Parts of Speech]({{ "/talks/pred-steve-pos-1.png" | prepend: site.baseurl }})
 
 </section>
-
 <section data-markdown>
 
 ### What is Structured Prediction
@@ -74,19 +72,63 @@ Without the structure we can't disambiguate words that have more than one part-o
 > "Will Bob will the will to Will?"
 
 </section>
+<section data-markdown>
+### Quick background
 
+In probabilistic modelling we model our inputs and outputs as _random variables_.
+* Coin flip `$P(X=\textrm{heads})=0.5$`
+
+In the part-of-speech example, we had a sequence of words and a seqence of POS tags.
+
+* `$X_t$` = the word at time `$t$` 
+* `$Y_t$` = the predicted POS tag at time `$t$`
+    * `$P(Y_t=\textrm{NOUN}) = 0.1232$`
+
+</section>
+<section data-markdown>
+### Quick background
+
+Joint probability distribution
+`$$P(X=\textrm{'will'}, Y=\textrm{NOUN})$$`
+
+Conditional probability distribution
+`$$P(Y=\textrm{NOUN} | X=\textrm{'will'})$$`
+
+Relationship: `$P(X, Y)=P(X | Y) \times P(Y)$`
+
+Bayes Rule: `$P(Y | X)=\frac{P(X | Y) \times P(Y)}{P(X)}$`
+</section>
 <section data-markdown>
 # Act 1
 Generative Models
 </section>
 
 <section data-markdown>
-### Generative Models 
-In the part-of-speech example given previously, we had a sequence of words and a seqence of POS tags.
+### Hidden Markov Models
 
-* `$X_t$` = the word at time `$t$` 
-* `$Y_t$` = the predicted POS tag at time `$t$`
+**Idea:**
+* Inputs are **observed** values, outputs are **hidden** states
+* These hidden states can be modeled as nodes in an automata
+* Each hidden state **emits** observed values
+* Each state can **transition** to other states
+* A sequence of outputs is a **path** through this automata
 
-In probabilistic modelling we model our inputs and outputs as _random variables_. In this case the random variable `$X_t$` is a _categorical_ variable that takes as its value any one of the words in the english language.
+![HMM states]({{ "/talks/pred-hmm-1.png" | prepend: site.baseurl }})
+</section>
+
+<section data-markdown>
+### Hidden Markov Models
+
+Models the real world process as:
+* Select a starting state (or have a single starting state)
+* **transition** to a state in the machine
+* **emit** an observed value
+* **transition** to this next state
+* ...
+
+|   | `$t = 0$` | `$t = 1$` | `$t = 2$` | `$t = 3$` | `$t = 4$` |
+|---|-----------|-----------|-----------|-----------|-----------|
+| Hidden State  | `$S_0$`   | NOUN      | VERB      | NOUN      | ADVERB    |
+| Emitted Value |           | Steve     | plays     | piano     | sometimes |
 
 </section>
