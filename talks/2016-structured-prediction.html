@@ -98,6 +98,33 @@ Relationship: `$P(X, Y)=P(X | Y) \times P(Y)$`
 
 Bayes Rule: `$P(Y | X)=\frac{P(X | Y) \times P(Y)}{P(X)}$`
 </section>
+<section>
+  <h3>Quick Background</h3>
+  <p>Joint distribution knows everything about $P(X, Y)$</p>
+  <style type="text/css">
+  table.tableizer-table {
+    border: 1px solid #CCC; 
+  } 
+  .tableizer-table td {
+    padding: 4px;
+    margin: 3px;
+    border: 1px solid #CCC;
+  }
+  td.tableizer-firstrow,.tableizer-firstrow th {
+    background-color: #166CC0; 
+    color: #FFF;
+    font-weight: bold;
+  }
+</style>
+<table class="tableizer-table">
+<thead><tr class="tableizer-firstrow"><th></th><th>NOUN</th><th>VERB</th><th>ADJ</th></tr></thead><tbody>
+ <tr><td class="tableizer-firstrow">dog</td><td>13423</td><td>34</td><td>0</td></tr>
+ <tr><td class="tableizer-firstrow">walk</td><td>4300</td><td>7400</td><td>0</td></tr>
+ <tr><td class="tableizer-firstrow">cat</td><td>12002</td><td>12</td><td>0</td></tr>
+ <tr><td class="tableizer-firstrow">short</td><td>904</td><td>3123</td><td>4339</td></tr>
+</tbody></table>
+</section>
+
 <section data-markdown>
 # Act 1
 Generative Models
@@ -126,9 +153,20 @@ Models the real world process as:
 * **transition** to this next state
 * ...
 
-|   | `$t = 0$` | `$t = 1$` | `$t = 2$` | `$t = 3$` | `$t = 4$` |
-|---|-----------|-----------|-----------|-----------|-----------|
-| Hidden State  | `$S_0$`   | NOUN      | VERB      | NOUN      | ADVERB    |
-| Emitted Value |           | Steve     | plays     | piano     | sometimes |
+|               | `$t = 0$` | `$t = 1$` | `$t = 2$` | `$t = 3$` |
+|---------------|-----------|-----------|-----------|-----------|
+| Hidden State  | NOUN      | VERB      | NOUN      | ADVERB    |
+| Emitted Value | Steve     | plays     | piano     | sometimes |
 
+</section>
+<section data-markdown>
+### Hidden Markov Models
+
+* `$A_{ij}$` = the **transition** probability of going from state `$Y_t$` to `$Y_{t+1}$`
+* `$B_m(k)$` = the **emission** probability of observing $m$ from state $k$
+* `$\pi_i$` = the **initial** probability of starting the sequence from state $i$
+
+We see `$\textbf{O}_t$` is `$\textbf{O}_0 = \textrm{Steve}, $\textbf{O}_1 = \textrm{plays},\dots$`
+
+Hidden states `$\textbf{Q}_t$` is `$\textbf{Q}_0 = \textrm{NOUN}, $\textbf{Q}_1 = \textrm{VERB},\dots$`
 </section>
