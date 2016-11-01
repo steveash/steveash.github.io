@@ -63,6 +63,11 @@ Steve Ash
 
 </section>
 
+<section data-transition="slide" data-background="#E6A697" data-background-transition="zoom" data-markdown>
+# Intro
+What is Structured Prediction?
+</section>
+
 <section data-markdown>
 ### What is Structured Prediction
 
@@ -184,7 +189,7 @@ Bayes Rule: `$P(Y | X)=\frac{P(X | Y) \times P(Y)}{P(X)}$`
   </div>
 </section>
 
-<section data-transition="slide" data-background="#B5533C" data-background-transition="zoom" data-markdown>
+<section data-transition="slide" data-background="#E6A697" data-background-transition="zoom" data-markdown>
 # Act 1
 Generative Models
 </section>
@@ -207,9 +212,8 @@ States? paths? Sounds like a job for **automata**
 
 Models the real world process as:
 * Select a starting state (or have a single starting state)
-* **transition** to a state in the machine
-* **emit** an observed value
-* **transition** to this next state
+* **emit** an observed value from this state
+* **transition** to the next state
 * assume that you can predict the next state using only the previous $k$ states - **markov** property
 * ...
 
@@ -255,7 +259,7 @@ Problems:
 
 </section>
 
-<section data-transition="slide" data-background="#B5533C" data-background-transition="zoom" data-markdown>
+<section data-transition="slide" data-background="#E6A697" data-background-transition="zoom" data-markdown>
 # Act 2
 Discriminative Models
 </section>
@@ -272,17 +276,20 @@ In 2001, a flexible, discriminative approach to structured prediction was introd
 **Conditional Random Fields** (CRFs)
 </section>
 
-<section data-markdown>
-### Conditional Random Fields
+<section>
+<h3>Conditional Random Fields</h3>
 
-![CRF Schematic]({{ "/talks/crf_1.png" | prepend: site.baseurl }})
+<p><img src="{{ "/talks/crf_1.png" | prepend: site.baseurl }}" alt="CRF Schematic" title="" style="height: 40%; width: 40%;"/></p>
 
 <div style="font-size: 80%;">
-* Undirected graph - _markov random field_
-* Factors on state transitions and factors on X to Y (sounds like an HMM right? but wait!)
-* Factors are not probability distributions &mdash; they don't have to sum to one
-* We normalize over the _entire_ sequence, not at each step
+<ul>
+<li>Undirected graph - <em>markov random field</em></li>
+<li>Factors on state transitions and factors on X to Y (sounds like an HMM right? but wait!)</li>
+<li>Factors are not probability distributions &mdash; they don't have to sum to one</li>
+<li>We normalize over the <em>entire</em> sequence, not at each step</li>
+</ul>
 </div>
+
 </section>
 
 <section data-markdown>
@@ -302,7 +309,7 @@ Sorry for the math :(
 
 ### Conditional Random Fields
 
-Feature function `$f_k(y_t, y_{t-1}, \textbf{x}_t)$`
+Feature function `$f_k(y_t, y_{t-1}, \textbf{x})$`
 
 * $y_t$ output label at time $t$
 * $y_{t-1}$ output label at previous time step
@@ -357,9 +364,11 @@ In practice, million features with ~100,000 training examples takes 3-10 hours o
 
 <table class="tableizer-table">
 <thead><tr class="tableizer-firstrow"><th></th><th>Token Accuracy</th><th>Sequence Accuracy</th></tr></thead><tbody>
- <tr><td class="tableizer-firstrow">HMM</td><td>95.13%</td><td>82.84%</td></tr>
+ <tr><td class="tableizer-firstrow">HMM</td><td>~90%</td><td>~80%</td></tr>
  <tr><td class="tableizer-firstrow">CRF</td><td>98.99%</td><td>96.67%</td></tr>
 </tbody></table>
+
+<p style="font-size: 65%">Sorry I don't have the precise numbers for the HMM version, and I didn't have time to dig it out of git and re-run</p>
 </section>
 
 <section data-markdown>
@@ -373,7 +382,7 @@ Problems:
 
 </section>
 
-<section data-transition="slide" data-background="#B5533C" data-background-transition="zoom" data-markdown>
+<section data-transition="slide" data-background="#E6A697" data-background-transition="zoom" data-markdown>
 # Act 3
 Recurrent Neural Networks
 </section>
@@ -385,32 +394,107 @@ Deep learning is a huge umbrella term for fancy neural network topologies + lots
 
 * Feed Forward Neural Networks for classification, regression
 * Need some _memory_ to allow previous time steps to influence future time steps
-* Recurrent neural networks have self-connections that provide such a memory
+
+![FF ANN]({{ "/talks/ffann-1.png" | prepend: site.baseurl }})
+</section>
+
+<section>
+<h3>Long Short-term Memory Neural Networks</h3>
+
+<ul>
+<li>Recurrent neural networks have self-connections that provide such a memory</li>
+<li>Consequence of back propagation through many layers: _vanishing_ gradient</li>
+<li>Want: a way to <b>remember</b> things across activations (and <b>forgetting</b> is important too)</li>
+</ul>
+
+<p><img src="{{ "/talks/LSTM3-chain.png" | prepend: site.baseurl }}" alt="LSTM Schematic" title="" style="height: 60%; width: 60%;"/></p>
+
+</section>
+
+<section>
+<h3>LSTMs</h3>
+
+<ul>
+<li><strong>Cell</strong> is the internal memory across activations</li>
+<li><strong>Gates</strong> to control that internal memory
+<ul><li>Forget gate - Should we forget the prev value?</li>
+<li>Input gate - How much should we update our cell?</li>
+<li>Output gate - How much should we output?</li></ul></li>
+</ul>
+
+<p><img src="{{ "/talks/LSTM3-chain.png" | prepend: site.baseurl }}" alt="LSTM Schematic" title="" style="height: 50%; width: 50%;"/></p>
+
+<p>Net effect: ability to learn long term memories, gradient doesn't vanish</p>
+</section>
+
+<section>
+<h3>LSTMs</h3>
+
+<p>One example of a performance comparison: <b>Predicting phonemes for words</b></p>
+
+<p style="font-size:120%; font-family: Helvetica Neue,Helvetica,Arial,sans-serif;">"discussion" → dɪˈskʌʃən</p>
+
+<table class="tableizer-table">
+<thead><tr class="tableizer-firstrow"><th></th><th>Word Accuracy</th><th>% Improve</th></tr></thead><tbody>
+ <tr><td class="tableizer-firstrow">HMM</td><td>0.7520</td><td>&nbsp;</td></tr>
+ <tr><td class="tableizer-firstrow">CRF</td><td>0.7592</td><td>0.96%</td></tr>
+ <tr><td class="tableizer-firstrow">LSTM</td><td>0.7870</td><td>4.65%</td></tr>
+</tbody></table>
+
 </section>
 
 <section data-markdown>
-### Long Short-term Memory Networks
 
-* Consequence of back propagation through many layers: _vanishing_ gradient
-* Want: a way to **remember** things across activations (and **forgetting** is important too)
+### Takeaways
 
-![LSTM Schematic]({{ "/talks/LSTM3-chain.png" | prepend: site.baseurl }})
+* HMMs are _generative_, CRFs are _discriminative_. They model different things with probabilities.
+* HMMs can be extended to higher orders more easily than CRFs
+* LSTMs aren't statistical machines at all (for better, for worse)
+* LSTMs are state-of-the-art for many tasks
+</section>
 
-###### [http://colah.github.io/posts/2015-08-Understanding-LSTMs](http://colah.github.io/posts/2015-08-Understanding-LSTMs)
+<section data-markdown>
+
+### Use **HMMs** when:
+
+* Structure in **output** is more important than structure in **input** 
+    * use higher order HMMs
+* You want a probabilistic model
+    * for Bayesian treatments, domain specific regularization, etc.
+* Simple and fast execution &mdash; compared to others
+* You want to learn a model, then use that to _generate_ sequences
 
 </section>
 
 <section data-markdown>
-### Long Short-term Memory Networks
 
-Lot going on in LSTMs:
+### Use **CRFs** when:
 
-* **Cell** is the internal memory across activations
-* **Gates** to control that internal memory
-    * Forget gate - Should we forget the prev value?
-    * Input gate - How much should we update our cell?
-    * Output gate - How much should we output?
+* Structure in **input** is more important than structure in **output**
+    * Use lower order chain with rich feature functions
+* Lots of _information_ in the input side, especially when you want non-local features
+* You want a probabilistic model
+    * Interpretable probabilities since its conditioned over _entire_ sequence
 
-Net effect: ability to learn long term memories, gradient doesn't vanish
+</section>
 
+<section data-markdown>
+
+### Use **LSTMs** when:
+
+* State of the art accuracy is the most important concern (not compactness or speed)
+* You have fast GPUs or a lot of cloud time (training can be pretty long)
+* You have some experience with deep learning
+    * Toolkits are improving, but still a lot of black magic, rules of thumb
+    * I think its easier to screw up LSTMs than HMMs (could be wrong in near future)
+
+</section>
+
+<section data-transition="slide" data-background="#E6A697" data-background-transition="zoom" data-markdown>
+# Questions?
+
+* [Andrew Moore's tutorials](http://www.cs.cmu.edu/~awm/tutorials.html)
+* [Andrew Moore's HMM tutorial](http://www.autonlab.org/tutorials/hmm.html)
+* [Intro to CRFs](http://blog.echen.me/2012/01/03/introduction-to-conditional-random-fields/)
+* [Colah's Blog - LSTM Info](http://colah.github.io/posts/2015-08-Understanding-LSTMs)
 </section>
