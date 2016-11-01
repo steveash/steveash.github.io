@@ -7,6 +7,31 @@ transition: none
 permalink: /talks/2016-structured-prediction
 ---
 
+<style type="text/css">
+  table.tableizer-table {
+    border: 1px solid #CCC; 
+  } 
+  .tableizer-table td {
+    padding: 4px;
+    margin: 3px;
+    border: 1px solid #CCC;
+  }
+  td.tableizer-firstrow,.tableizer-firstrow th {
+    background-color: #3b759e; 
+    color: #FFF;
+    font-weight: bold;
+  }
+  td.hirow,th.hirow {
+    background-color: #ffbba2; 
+  }
+  td.hicell {
+    background-color: #e25c2b; 
+  }  
+  p.txtsmall {
+    font-size: 60%;
+  }
+</style>
+
 <section data-markdown>
 ## Intro to Structured Prediction in 3 Acts
 
@@ -75,10 +100,10 @@ Without the structure we can't disambiguate words that have more than one part-o
 <section data-markdown>
 ### Quick background
 
-In probabilistic modelling we model our inputs and outputs as _random variables_.
+In probabilistic modeling we model our inputs and outputs as _random variables_.
 * Coin flip `$P(X=\textrm{heads})=0.5$`
 
-In the part-of-speech example, we had a sequence of words and a seqence of POS tags.
+In the part-of-speech example, we had a sequence of words and a sequence of POS tags.
 
 * `$X_t$` = the word at time `$t$` 
 * `$Y_t$` = the predicted POS tag at time `$t$`
@@ -89,43 +114,77 @@ In the part-of-speech example, we had a sequence of words and a seqence of POS t
 ### Quick background
 
 Joint probability distribution
-`$$P(X=\textrm{'will'}, Y=\textrm{NOUN})$$`
+`$$P(X=\textrm{will}, Y=\textrm{NOUN})$$`
 
 Conditional probability distribution
-`$$P(Y=\textrm{NOUN} | X=\textrm{'will'})$$`
+`$$P(Y=\textrm{NOUN} | X=\textrm{will})$$`
 
 Relationship: `$P(X, Y)=P(X | Y) \times P(Y)$`
 
 Bayes Rule: `$P(Y | X)=\frac{P(X | Y) \times P(Y)}{P(X)}$`
 </section>
 <section>
-  <h3>Quick Background</h3>
+  <h3>Joint vs Conditional</h3>
   <p>Joint distribution knows everything about $P(X, Y)$</p>
-  <style type="text/css">
-  table.tableizer-table {
-    border: 1px solid #CCC; 
-  } 
-  .tableizer-table td {
-    padding: 4px;
-    margin: 3px;
-    border: 1px solid #CCC;
-  }
-  td.tableizer-firstrow,.tableizer-firstrow th {
-    background-color: #166CC0; 
-    color: #FFF;
-    font-weight: bold;
-  }
-</style>
-<table class="tableizer-table">
-<thead><tr class="tableizer-firstrow"><th></th><th>NOUN</th><th>VERB</th><th>ADJ</th></tr></thead><tbody>
- <tr><td class="tableizer-firstrow">dog</td><td>13423</td><td>34</td><td>0</td></tr>
- <tr><td class="tableizer-firstrow">walk</td><td>4300</td><td>7400</td><td>0</td></tr>
- <tr><td class="tableizer-firstrow">cat</td><td>12002</td><td>12</td><td>0</td></tr>
- <tr><td class="tableizer-firstrow">short</td><td>904</td><td>3123</td><td>4339</td></tr>
-</tbody></table>
+  
+  <table class="tableizer-table">
+    <thead><tr class="tableizer-firstrow"><th></th><th>NOUN</th><th>VERB</th><th>ADJ</th></tr></thead><tbody>
+    <tr><td class="tableizer-firstrow">dog</td><td>13423</td><td>34</td><td>0</td></tr>
+    <tr><td class="tableizer-firstrow">walk</td><td>4300</td><td>7400</td><td>0</td></tr>
+    <tr><td class="tableizer-firstrow">cat</td><td>12002</td><td>12</td><td>0</td></tr>
+    <tr><td class="tableizer-firstrow">short</td><td>904</td><td>3123</td><td>4339</td></tr>
+    </tbody>
+  </table>
+  <p class="txtsmall">Frequency table- each cell is how many occurrences you have seen</p>
 </section>
 
-<section data-markdown>
+<section>
+  <h3>Joint vs Conditional</h3>
+  <p>Joint distribution knows everything about $P(X, Y)$</p>
+  <p>$P(X=\textrm{short}, Y=\textrm{VERB})=0.0686$</p>
+  <table class="tableizer-table">
+    <thead><tr class="tableizer-firstrow"><th></th><th>NOUN</th><th>VERB</th><th>ADJ</th></tr></thead><tbody>
+    <tr><td class="tableizer-firstrow">dog</td><td>0.2948</td><td class="hirow">0.0007</td><td>0.0000</td></tr>
+    <tr><td class="tableizer-firstrow">walk</td><td>0.0944</td><td class="hirow">0.1625</td><td>0.0000</td></tr>
+    <tr><td class="tableizer-firstrow">cat</td><td>0.2636</td><td class="hirow">0.0003</td><td>0.0000</td></tr>
+    <tr><td class="tableizer-firstrow">short</td><td class="hirow">0.0199</td><td class="hicell">0.0686</td><td>0.0953</td></tr>
+    </tbody>
+  </table>
+  <p class="txtsmall">Joint distribution- each cell divided by sum of all counts</p>
+  
+</section>
+
+<section>
+  <h3>Joint vs Conditional</h3>
+  <p>Conditional distribution only has information about a single row/column</p>
+  <p>$P(X=\textrm{short} | Y=\textrm{VERB}) = 0.2955$</p>
+  
+  <div style="width: 100%; font-size: 80%;">
+    <div style="display: inline-block; margin-left:auto;">
+      <table class="tableizer-table">
+        <thead><tr class="tableizer-firstrow"><th></th><th>NOUN</th><th>VERB</th><th>ADJ</th></tr></thead><tbody>
+        <tr><td class="tableizer-firstrow">dog</td><td>0.2948</td><td class="hirow">0.0007</td><td>0.0000</td></tr>
+        <tr><td class="tableizer-firstrow">walk</td><td>0.0944</td><td class="hirow">0.1625</td><td>0.0000</td></tr>
+        <tr><td class="tableizer-firstrow">cat</td><td>0.2636</td><td class="hirow">0.0003</td><td>0.0000</td></tr>
+        <tr><td class="tableizer-firstrow">short</td><td>0.0199</td><td class="hirow">0.0686</td><td>0.0953</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div style="display: inline-block; margin-left:3em; margin-right:auto;">
+      <table class="tableizer-table">
+        <thead><tr class="tableizer-firstrow"><th></th><th>$P(X|\textrm{VERB})$</th></tr></thead><tbody>
+        <tr><td class="tableizer-firstrow">dog</td><td class="hirow">0.0032</td></tr>
+        <tr><td class="tableizer-firstrow">walk</td><td class="hirow">0.7002</td></tr>
+        <tr><td class="tableizer-firstrow">cat</td><td class="hirow">0.0011</td></tr>
+        <tr><td class="tableizer-firstrow">short</td><td class="hirow">0.2955</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div style="clear:both;"/>
+  </div>
+</section>
+
+<section data-transition="slide" data-background="#B5533C" data-background-transition="zoom" data-markdown>
 # Act 1
 Generative Models
 </section>
@@ -133,12 +192,12 @@ Generative Models
 <section data-markdown>
 ### Hidden Markov Models
 
-**Idea:**
-* Inputs are **observed** values, outputs are **hidden** states
-* These hidden states can be modeled as nodes in an automata
-* Each hidden state **emits** observed values
-* Each state can **transition** to other states
-* A sequence of outputs is a **path** through this automata
+Assume that the thing you are interested in can be modeled as a sequence of **hidden** states, where at 
+each state some value is **emitted**, and that's all you can see.
+
+Goal: find a **path** through the hidden states that best explains what you see
+
+States? paths? Sounds like a job for **automata**
 
 ![HMM states]({{ "/talks/pred-hmm-1.png" | prepend: site.baseurl }})
 </section>
@@ -151,6 +210,7 @@ Models the real world process as:
 * **transition** to a state in the machine
 * **emit** an observed value
 * **transition** to this next state
+* assume that you can predict the next state using only the previous $k$ states - **markov** property
 * ...
 
 |               | `$t = 0$` | `$t = 1$` | `$t = 2$` | `$t = 3$` |
@@ -162,11 +222,195 @@ Models the real world process as:
 <section data-markdown>
 ### Hidden Markov Models
 
-* `$A_{ij}$` = the **transition** probability of going from state `$Y_t$` to `$Y_{t+1}$`
-* `$B_m(k)$` = the **emission** probability of observing $m$ from state $k$
-* `$\pi_i$` = the **initial** probability of starting the sequence from state $i$
+Each path has an overall probability, and thus we want to find the most probable path.
+<div style="font-size: 80%;">
+* `$A_{ij}$` - prob of **transitioning** from state `$Y_i$` to `$Y_j$`
+* `$B_m(k)$` - prob of state $k$ **emitting** value $m$
+* `$\pi_i$` - prob of **starting** from state $i$
 
-We see `$\textbf{O}_t$` is `$\textbf{O}_0 = \textrm{Steve}, $\textbf{O}_1 = \textrm{plays},\dots$`
+`$\textbf{O}_t$` observed sequence: `$$\textbf{O}_0 = \textrm{Steve}, \textbf{O}_1 = \textrm{plays},\dots$$`
 
-Hidden states `$\textbf{Q}_t$` is `$\textbf{Q}_0 = \textrm{NOUN}, $\textbf{Q}_1 = \textrm{VERB},\dots$`
+`$\textbf{Q}_t$` hidden sequence: `$$\textbf{Q}_0 = \textrm{NOUN}, \textbf{Q}_1 = \textrm{VERB},\dots$$`
+</div>
+</section>
+<section data-markdown>
+### Hidden Markov Models
+
+So our inference problem is:
+`$$P(Q | O) = \frac{P(O | Q) \times P(Q)}{P(O)}$$`
+
+Since the right hand numerator is `$P(O | Q) \times P(Q)$`, we basically have to estimate the whole joint probability distribution of words and POS tags.
+
+An interesting property of models formulated like this is that we can use the probability model to **generate** new instances from our data population.
+
+</section>
+<section data-markdown>
+### Hidden Markov Models
+
+Problems:
+* Each hidden state's emission probabilities is a probability distribution.
+* States with many possible emission values have to spread that probability mass out.
+* More states means lower and lower overall sequence probability
+* If we don't need to _generate_ values, we don't need the full joint distribution. We just want $P(Q | O)$...
+
+</section>
+
+<section data-transition="slide" data-background="#B5533C" data-background-transition="zoom" data-markdown>
+# Act 2
+Discriminative Models
+</section>
+
+<section data-markdown>
+### Conditional Random Fields
+
+In contrast to _generative_ models like HMMs, discriminative models don't bother trying to represent the real underlying process that results in the evidence that you observe. 
+
+Instead they just model the output directly: `$P(Y | X)$`
+
+In 2001, a flexible, discriminative approach to structured prediction was introduced called:
+
+**Conditional Random Fields** (CRFs)
+</section>
+
+<section data-markdown>
+### Conditional Random Fields
+
+![CRF Schematic]({{ "/talks/crf_1.png" | prepend: site.baseurl }})
+
+<div style="font-size: 80%;">
+* Undirected graph - _markov random field_
+* Factors on state transitions and factors on X to Y (sounds like an HMM right? but wait!)
+* Factors are not probability distributions &mdash; they don't have to sum to one
+* We normalize over the _entire_ sequence, not at each step
+</div>
+</section>
+
+<section data-markdown>
+
+### Conditional Random Fields
+
+Sorry for the math :(
+
+`$$p(\textbf{y} | \textbf{x}) = \frac{1}{Z(\textbf{x})} \prod_{t=1}^{T} \exp \left\lbrace \sum_{k=1}^{K} \theta_k f_k(y_t, y_{t-1}, \textbf{x}) \right\rbrace $$`
+
+* The `$\frac{1}{Z(\textbf{x})}$` is normalizing over the whole sequence
+* Most important part is feature function: `$f_k(y_t, y_{t-1}, \textbf{x})$`
+
+</section>
+
+<section data-markdown>
+
+### Conditional Random Fields
+
+Feature function `$f_k(y_t, y_{t-1}, \textbf{x}_t)$`
+
+* $y_t$ output label at time $t$
+* $y_{t-1}$ output label at previous time step
+* $\textbf{x}$ whole input sequence
+
+Can use information from any part of the input sequence for step $t$ - much **more flexible than HMM**
+
+CRFs can have _many_ feature functions (millions is not uncommon)
+
+**Regularization** and the discriminative aspect of CRFs allow them to effectively deal with sparse features
+
+</section>
+
+<section data-markdown>
+
+### Conditional Random Fields
+
+POS tagging example feature functions:
+* Return 1 if this word end in _-ly_
+* Return 1 if the _next_ word end in _-ly_
+* Return 1 if sequence ends in a '?'
+* Return 1 if the _next_ word is an _article_ (a, an, etc)
+* Return 1 if the _prev_ word is a preposition (of, at, to, etc)
+
+Provide expert knowledge via feature engineering. Let optimization figure out which parts are important and which aren't.
+
+</section>
+
+<section data-markdown>
+  
+### Conditional Random Fields
+
+Optimization is tractable because the CRF equation is _convex_ and we can use typical gradient + Hessian methods to find optimal parameters in finite time.
+
+In practice, million features with ~100,000 training examples takes 3-10 hours on gcloud 32 core instances.
+</section>
+
+<section data-markdown>
+  
+### Conditional Random Fields
+
+Optimization is tractable because the CRF equation is _convex_ and we can use typical gradient + Hessian methods to find optimal parameters in finite time.
+
+In practice, million features with ~100,000 training examples takes 3-10 hours on gcloud 32 core instances.
+</section>
+
+<section>
+<h3>Conditional Random Fields</h3>
+<p>Comparing performance on <b>address sequence tagging</b></p>
+<p>123 W Main St</p>
+<p>ST_NUMBER PRE_DIRECTIONAL STREET DESIGNATOR</p>
+
+<table class="tableizer-table">
+<thead><tr class="tableizer-firstrow"><th></th><th>Token Accuracy</th><th>Sequence Accuracy</th></tr></thead><tbody>
+ <tr><td class="tableizer-firstrow">HMM</td><td>95.13%</td><td>82.84%</td></tr>
+ <tr><td class="tableizer-firstrow">CRF</td><td>98.99%</td><td>96.67%</td></tr>
+</tbody></table>
+</section>
+
+<section data-markdown>
+### Conditional Random Fields
+
+Problems:
+* Linear-chain CRFs can only use previous step(s) like HMMs
+* Given the larger feature space, CRFs degenerate quicker with higher-orders (compared to HMMs)
+* Still a lot of feature engineering to do
+* ... wouldn't it be nice if we could automate that...
+
+</section>
+
+<section data-transition="slide" data-background="#B5533C" data-background-transition="zoom" data-markdown>
+# Act 3
+Recurrent Neural Networks
+</section>
+
+<section data-markdown>
+### Deep Learning
+
+Deep learning is a huge umbrella term for fancy neural network topologies + lots of tricks to make training robust
+
+* Feed Forward Neural Networks for classification, regression
+* Need some _memory_ to allow previous time steps to influence future time steps
+* Recurrent neural networks have self-connections that provide such a memory
+</section>
+
+<section data-markdown>
+### Long Short-term Memory Networks
+
+* Consequence of back propagation through many layers: _vanishing_ gradient
+* Want: a way to **remember** things across activations (and **forgetting** is important too)
+
+![LSTM Schematic]({{ "/talks/LSTM3-chain.png" | prepend: site.baseurl }})
+
+###### [http://colah.github.io/posts/2015-08-Understanding-LSTMs](http://colah.github.io/posts/2015-08-Understanding-LSTMs)
+
+</section>
+
+<section data-markdown>
+### Long Short-term Memory Networks
+
+Lot going on in LSTMs:
+
+* **Cell** is the internal memory across activations
+* **Gates** to control that internal memory
+    * Forget gate - Should we forget the prev value?
+    * Input gate - How much should we update our cell?
+    * Output gate - How much should we output?
+
+Net effect: ability to learn long term memories, gradient doesn't vanish
+
 </section>
