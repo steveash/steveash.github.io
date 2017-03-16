@@ -29,7 +29,7 @@ Here are some problems that I've worked on:
 
 ### Education
 
-* **PhD, Computer Science**. University of Memphis. 2017 (in progress).
+* **PhD, Computer Science**. University of Memphis. 2017.
 * **MS, Computer Science**. University of Memphis. 2012.
 * **BA, Computer Science**. Rhodes College. 2006.
 
