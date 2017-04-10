@@ -18,9 +18,10 @@ I work as the lead of the Analytic Sciences Group (ASG), the R&D team for ARGO D
 
 ### Work Experience
 
-## ARGO Data (2010-Present)
+#### ARGO Data (2010-Present)
 
 Analytic Science Group, Lead
+
 Software Architect
 
 * Work with C-level executives and product owners to identify opportunities where intelligent analytic solutions can provide value to our products
@@ -33,7 +34,7 @@ Software Architect
 * Performance engineering to teams for database and Java application performance optimization
 * New project team bootstrapping to establish initial design, architecture, and toolchain for teams new to Java and Agile
 
-# Project Overview
+##### Project Overview
 
 * Healthcare Master Patient Index (EMPI): resolving the identities of patients across multiple care facilities. Nationwide average of duplicate medical records is 8%. Developed state-of-the-art solution which empirically beats competitors in accuracy (in particular in false-negative error). The solution enhances the traditional Fellegi-Sunter probabilistic formulation by incorporating informative priors and modeling interaction/dependence. We use natural language processing techniques, supervised machine learning, and sophisticated data quality models to match against the semantic information as much as possible -- greatly exceeding the performance accessible to naive edit distance-based similarity approaches. This solution is in production in numerous integrated health networks and health information exchanges in Texas, Oklahoma, New York, and California.
 * Patient re-admission risk predictive modeling: predicting risk of unexpected re-admission for patients based on medical history, social factors, episode and discharge features to improve the quality of care and reduce the risk of hopsital CMS penalties.
@@ -47,7 +48,7 @@ Software Architect
 * String similarity measurement and clustering at scale (patent US9129010 B2).
 * Low-level integration libraries to bridge a proprietary 4th Generation Language to the .NET CLR handling marshalling and tracing.
 
-## FIS (previously Metavante, VectorSGI; 2006-2010)
+#### FIS (previously Metavante, VectorSGI; 2006-2010)
 
 Software Engineer, II
 
