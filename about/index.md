@@ -6,39 +6,45 @@ date: 2016-10-30
 comments: false
 ---
 
-By day I am a Software Architect for ARGO Data.  I lead the "Skunkworks" R&D team.  We work on interesting problems in banking and health care using distributed systems, artificial intelligence, natural language processing, and data mining.  
-
-Here are some problems that I've worked on:
-
-* Determining if two medical records refer to the same real world person using tons of data mined reference information (about names, cultures, phonetics), a bajillion heuristics, and some fancy math. This is running in production in numerous health care facilities in Texas, Oklahoma, New York, and California.
-* Building a better address parser using modern machine learning and NLP (patented).
-* Detecting check fraud in banking transactions. This is running in production in a number of banks in the United States and Canada.
-* Scalable machine learning using Spark Streaming + Cassandra
-* String similarity measurement and clustering at scale (patented).
-* Moving tens of millions of check images across the top 50 banks in the US every night.
-* Doing all of the above at high throughput and low latency in distributed clusters of machines.
-* A number of nitty gritty integration libraries for various IPC and RPC scenerios: marshalling between platforms like C# + JVM stuff, etc.
-
+I work as the lead of the Analytic Sciences Group (ASG), the R&D team for ARGO Data. We work across ARGO to use data science to solve challenging problems in banking and healthcare. We have a few PhDs and MSs to execute both the research and development of production-ready components. ARGO is a software vendor, and our solutions run in multiple customer installations across a number of products.  Our interest and core competency is in natural language processing, data mining, and predictive modeling. In addition to leading the team, I have a passion and background in software engineering and architecture. I have built numerous distributed, high-volume transaction processing systems, and provide architecture guidance and project bootstrapping for a number of projects across the company.
 
 ### Technology
 
-* **Language expertise**: Java, Groovy, Python, C#/.NET, C/C++, SQL
-* **Infrastructure**: Spark, Spark Streaming, Hadoop, ELK, Elasticsearch, Docker
-* **Storage**: Cassandra, GridGain/Ignite, HDFS, Kafka, MSSQL, Postgres, Oracle
-* **Data Mining, Machine Learning**: KNIME, Weka, Mallet, scikit-learn, Factorie, NLTK, Deeplearning4j
+* **Language expertise**: Java, Python, Groovy, C#/.NET, C++14, SQL
+* **Data Mining, Machine Learning**: jPMML, Mallet, scikit-learn, NumPy, Pandas, Matlib, KNIME, Weka, Factorie, NLTK, Deeplearning4j
+* **Infrastructure**: Spark, Spark Streaming, Hadoop, Elasticsearch, Spring, Spring Boot, Hibernate/JPA, Jooq
+* **Storage**: MSSQL, Oracle, Cassandra, GridGain/Ignite, Kafka, HDFS
+* **Toolchain**: Gradle, Maven, Bamboo, Git, Docker
+
+
+### Project Overview
+
+* Healthcare Master Patient Index: resolving the identities of patients across multiple care facilities. Nationwide average of duplicate medical records is 8%. Developed state-of-the-art solution which empirically beats competitors in accuracy (in particular in false-negative error). The solution enhances the traditional Fellegi-Sunter probabilistic formulation by incorporating informative priors and modeling interaction/dependence. We use natural language processing techniques, supervised machine learning, and sophisticated data quality models to match against the semantic information as much as possible -- greatly exceeding the performance accessible to naive edit distance-based similarity approaches. This solution is in production in numerous integrated health networks and health information exchanges in Texas, Oklahoma, New York, and California.
+* Patient re-admission risk predictive modeling: predicting risk of unexpected re-admission for patients based on medical history, social factors, episode and discharge features to improve the quality of care and reduce the risk of hopsital CMS penalties.
+* Multi-cultural personal name parsing using a pipeline design with structured prediction, gender and culture classification, and re-ranking
+* Semi-structured address parsing using Conditional Random Fields and USPS and Census data (patent pending US 20160147943)
+* Detecting check fraud in batch-processing banking transactions. We deploy champion/challenger models with offline re-training. This is running in production at a large multi-bank processor. We achieved a ~90% detection rate with < 2% review rate, beating our competitor.
+* Branch teller real-time fraud detection and compliance. Lead both the architecture, software design, and analytics development for ARGO's Teller-integrated fraud detection solution. This is a distributed, highly available solution that does metadata analysis of teller transactions to prevent loss at the branch. In addition, the solution tracks cash and monetary instruments for compliance reporting. This is running in production with more customer implementations in progress.
+* Cash Inventory Optimization forecasting cash needs at branches and ATMs to reduce cost
+* Customer attrition risk predictive modeling to indicate which customers are likely to be risk of leaving the institution.
+* Semi-structured text topic modeling, summarization, and sentiment analysis for customer complaint workflow optimization.
+* String similarity measurement and clustering at scale (patent US9129010 B2).
+* Moving tens of millions of check images across the top 50 banks in the US every night.
+* Low-level integration libraries to bridge a proprietary 4th Generation Language to the .NET CLR handling marshalling and tracing.
 
 ### Education
 
 * **PhD, Computer Science**. University of Memphis. 2017.
+  * Dissertation Title: "Improving Accuracy of Patient Demographic Matching and Identity Resolution"
 * **MS, Computer Science**. University of Memphis. 2012.
 * **BA, Computer Science**. Rhodes College. 2006.
 
 My academic background covers a wide range of computer science topics:
 
-* low level database work -- enhancing database query optimizers and storage subsystems for SSDs
-* distributed systems -- implementing 2 phase commit protocols in a distributed hash table system
-* challenging NLP problems -- grapheme to phoneme transduction in multiple languages using probabilistic graphical models
-* similarity problems -- using probabilistic models and a complicated data pipelines to do large scale demographic matching, improving the state of the art
+* Natural Language Processing: Grapheme to Phoneme (G2P) transduction, Parsing, Probabilistic Graphical Models, Structured Prediction
+* Database Systems: Query Optimization, Optimizing Storage Subsystems for SSDs
+* Distributed Systems: distributed hash tables, routing, distributed two-phase commit
+* Statistics: hypothesis testing, classification, survival analysis, time-series analysis
 
 ### Publications
 
@@ -52,3 +58,11 @@ My academic background covers a wide range of computer science topics:
 
 * Ash, Stephen; Siler, Michael. US Patent Application US 20160147943. **Semantic Address Parsing Using a Graphical Discriminative Probabilistic Model**. 21 November 2014.
 * Ash, Stephen; Bowman, Jerry. US Patent US9129010 B2. **System and Method of Partitioned Lexicographic Search**. 16 May 2011.
+
+### Awards
+
+* 2nd Place Student Research Symposium. University of Memphis. 2012. Research in Neural Networks for object identification and extraction on banking check images.
+* Metavante Key Results. Metavante. 2008. Awarded by a director to employees that uniquely contribute to success of key corporate strategic goals.
+* President's Award. Tristate Independant Theatre Association. 2008. Awarded to a single individual each year for leadership and contribution to business initiatives.
+* Jack U. Russell Award for Outstanding Work in Computer Science. Rhodes College. 2006. Awarded by the faculty of the Math and Computer Science department at Rhodes College to a graduating senior for outstanding work during their undergraduate career.
+* Outstanding Work in First-Year Computer Science. Rhodes College. 2004. Awarded by the faculty of the Math and Computer Science department at Rhodes College for outstanding work during the first year of study in the department.
