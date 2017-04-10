@@ -85,8 +85,8 @@ Software Engineer, II
 
 ## Awards
 
-* 2nd Place Student Research Symposium. University of Memphis. 2012. Research in Neural Networks for object identification and extraction on banking check images.
-* Metavante Key Results. Metavante. 2008. Awarded by a director to employees that uniquely contribute to success of key corporate strategic goals.
-* President's Award. Tristate Independant Theatre Association. 2008. Awarded to a single individual each year for leadership and contribution to business initiatives.
-* Jack U. Russell Award for Outstanding Work in Computer Science. Rhodes College. 2006. Awarded by the faculty of the Math and Computer Science department at Rhodes College to a graduating senior for outstanding work during their undergraduate career.
-* Outstanding Work in First-Year Computer Science. Rhodes College. 2004. Awarded by the faculty of the Math and Computer Science department at Rhodes College for outstanding work during the first year of study in the department.
+* **2nd Place Student Research Symposium**. University of Memphis. 2012. Research in Neural Networks for object identification and extraction on banking check images.
+* **Metavante Key Results**. Metavante. 2008. Awarded by a director to employees that uniquely contribute to success of key corporate strategic goals.
+* **President's Award**. Tristate Independant Theatre Association. 2008. Awarded to a single individual each year for leadership and contribution to business initiatives.
+* **Jack U. Russell Award** for Outstanding Work in Computer Science. Rhodes College. 2006. Awarded by the faculty of the Math and Computer Science department at Rhodes College to a graduating senior for outstanding work during their undergraduate career.
+* **Outstanding Work in First-Year Computer Science**. Rhodes College. 2004. Awarded by the faculty of the Math and Computer Science department at Rhodes College for outstanding work during the first year of study in the department.
