@@ -32,26 +32,26 @@ Data Science
 Analytic Science Group, Lead; Software Architect
 
 * Work with C-level executives and product owners to identify opportunities where intelligent analytic solutions can provide value to our products
-* Develop strategies to scope, prioritize, and deliver intelligent solutions in line with company initiatives and strategy
+* Develop strategies to scope, prioritize, and deliver intelligent solutions in line with strategy
 * Lead a team of 5 data scientists and research engineers to execute projects
 * Perform data science tasks such as exploration, visualization, modeling, and experimentation
 * Engineer production-ready components to deploy analytic solutions into our commercial products
-* Participate in sales support activities to communicate the value and credibility of ARGO analytic solutions to prospective customers
+* Participate in sales support activities to communicate the value and credibility to prospective customers
 * Accountable for design and architecture responsibilities for multiple software projects across the company
 * Performance engineering for database and Java application performance optimization
 * New project team bootstrapping to establish initial design, architecture, and toolchain
 
 #### Project Overview
 
-* Healthcare Master Patient Index (EMPI): resolving the identities of patients across multiple care facilities. Developed state-of-the-art solution which empirically beats competitors in accuracy. The solution enhances the traditional Fellegi-Sunter probabilistic formulation by incorporating informative priors and modeling interaction/dependence. We use NLP techniques, supervised ML, and sophisticated data quality models to match using the semantic information in noisy data records. This solution is in production in numerous integrated facilities and health information exchanges in Texas, Oklahoma, New York, and California.
-* Patient re-admission risk predictive modeling: predicting risk of unexpected re-admission for patients based on medical history, social factors, episode and discharge features to improve the quality of care and reduce the risk of hopsital CMS penalties.
-* Multi-cultural personal name parsing using a pipeline design with structured prediction, gender and culture classification, and re-ranking
-* Semi-structured address parsing using Conditional Random Fields and USPS and Census data (patent pending US 20160147943).
-* Detecting check fraud in batch-processing banking transactions. We deploy champion/challenger models with offline re-training. This is running in production at a large multi-bank processor. We achieved a ~90% detection rate with < 2% review rate, beating our competitor.
-* Branch teller real-time fraud detection and compliance. Lead both the architecture, software design, and analytics development for ARGO's Teller-integrated fraud detection solution. This is a distributed, highly available solution that does metadata analysis of teller transactions to prevent loss at the branch. In addition, the solution tracks cash and monetary instruments for compliance reporting. This is in production with more customer implementations in progress.
-* Cash Inventory Optimization forecasting cash needs at branches and ATMs to reduce cost.
-* Customer attrition risk predictive modeling to indicate which customers are likely to be risk of leaving the institution.
-* Semi-structured text topic modeling, summarization, and sentiment analysis for customer complaint workflow optimization.
+* **Master Patient Index** (EMPI): resolving the identities of patients across multiple care facilities. Developed state-of-the-art solution which empirically beats competitors in accuracy. The solution enhances the traditional Fellegi-Sunter probabilistic formulation by incorporating informative priors and modeling interaction/dependence. We use NLP techniques, supervised ML, and sophisticated data quality models to match using the semantic information in noisy data records. This solution is in production in numerous integrated facilities and health information exchanges in Texas, Oklahoma, New York, and California.
+* **Patient re-admission risk** predictive modeling: predicting risk of unexpected re-admission for patients based on medical history, social factors, episode and discharge features to improve the quality of care and reduce the risk of hopsital CMS penalties.
+* Multi-cultural **personal name parsing** using a pipeline design with structured prediction, gender and culture classification, and re-ranking
+* Semi-structured **address parsing** using Conditional Random Fields and USPS and Census data (patent pending US 20160147943).
+* Detecting **check fraud** in batch-processing banking transactions. We deploy champion/challenger models with offline re-training. This is running in production at a large multi-bank processor. We achieved a ~90% detection rate with < 2% review rate, beating our competitor.
+* Branch teller **real-time fraud detection** and compliance. Lead both the architecture, software design, and analytics development for ARGO's Teller-integrated fraud detection solution. This is a distributed, highly available solution that does metadata analysis of teller transactions to prevent loss at the branch. In addition, the solution tracks cash and monetary instruments for compliance reporting. This is in production with more customer implementations in progress.
+* Cash Inventory Optimization **forecasting cash needs** at branches and ATMs to reduce cost.
+* **Customer attrition risk** predictive modeling to indicate which customers are likely to be risk of leaving the institution.
+* Semi-structured **text topic modeling**, summarization, and sentiment analysis for customer complaint workflow optimization.
 * String similarity measurement and clustering at scale (patent US9129010 B2).
 * Low-level integration libraries to bridge a proprietary 4th Generation Language to the .NET CLR handling marshalling and tracing.
 
