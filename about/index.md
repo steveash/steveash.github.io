@@ -72,16 +72,17 @@ Software Engineer, II
 
 ## Publications
 
-* Ash, Stephen; Lin, David. **Incorporating Syllable Phonotactics to Improve Grapheme to Phoneme Translation**. Future and Emerging Trends in Language Technologies FETLT 2016 (in press).
-* Ash, Stephen; Lin, David. **Grapheme to Phoneme Translation using Conditional Random Fields with Re-ranking**. TSD 2016 Proceedings of the 19th International Conference on Text, Speech and Dialogue. 2016. [http://link.springer.com/chapter/10.1007/978-3-319-45510-5_36](http://link.springer.com/chapter/10.1007/978-3-319-45510-5_36)
-* Ash, Stephen; Lin, David. **Embracing the Sparse, Noisy, and Interrelated Aspects of Patient Demographics for use in Clinical Medical Record Linkage**. AMIA Summits on Clinical Research Informatics 2015. 2015. [https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4525218/](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4525218/)
-* Ash, Stephen; Lin, David. **The Discriminating Power of Information within Patient Demographics for Clinical Medical Record Linkage**. GIS 2014 Global Identity Summit. 2014. _Invited Talk_.
-* Ash, Stephen; Lin, David. **Optimizing database index performance for solid state drives**. IDEAS '14 Proceedings of the 18th International Database Engineering & Applications Symposium. 2014. [http://dl.acm.org/citation.cfm?id=2628255](http://dl.acm.org/citation.cfm?id=2628255).
+* Stephen Ash and David Lin. 2016 (In Press). **Incorporating syllable phonotactics to improve grapheme to phoneme translation**. _Future and Emerging Trends in Language Technologies (FETLT 2016)_.
+* Stephen Ash and David Lin. 2016. **Grapheme to phoneme translation using conditional random fields with re-ranking**. _Proceedings of the 19th International Conference on Text, Speech, and Dialogue (TSD 2016)_, 314-325. [http://link.springer.com/chapter/10.1007/978-3-319-45510-5_36](http://link.springer.com/chapter/10.1007/978-3-319-45510-5_36)
+* Stephen Ash and David Lin. 2015. **Embracing the sparse, noisy, and interrelated aspects of patient demographics for use in clinical medical record linkage**.  _AMIA Summits on Clinical Research Informatics 2015_, 425-429. [https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4525218/](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4525218/)
+* Stephen Ash and David Lin. 2014. **The discriminating power of information within patient demographics for clinical medical record linkage**. _Global Identity Summit (GIS 2014)_. Invited Talk.
+* Stephen Ash and David Lin. 2014. **Optimizing database index performance for solid state drives**. _Proceedings of the 18th International Database Engineering & Applications Symposium (IDEAS '14)_, 237-246. [http://dl.acm.org/citation.cfm?id=2628255](http://dl.acm.org/citation.cfm?id=2628255).
 
 ## Patents
 
-* Ash, Stephen; Siler, Michael. US Patent Application US 20160147943. **Semantic Address Parsing Using a Graphical Discriminative Probabilistic Model**. 21 November 2014.
-* Ash, Stephen; Bowman, Jerry. US Patent US9129010 B2. **System and Method of Partitioned Lexicographic Search**. 16 May 2011.
+* Stephen Ash and Jerry Bowman. 2015. **System and method of partitioned lexicographic search**. US Patent No. US9129010 B2, Filed May 16, 2011, Issued Sept. 8, 2015.
+* Stephen Ash and Michael Siler. 2014. **Semantic address parsing using a graphical discriminative probabilistic model**. US Patent Application No. 20160147943, Filed Nov. 21, 2014.
+
 
 ## Awards
 
