@@ -6,21 +6,21 @@ date: 2016-10-30
 comments: false
 ---
 
-I work as the lead of the Analytic Sciences Group (ASG), the R&D team for ARGO Data. We work across ARGO to use data science to solve challenging problems in banking and healthcare. I have 10+ years of industry experience building high-volume, distributed transaction processing systems. My academic background includes a PhD in Computer Science and publications in Natural Language Processing, Probabilistic Graphical Models, and Data Mining. I split my time between data science, research engineering, and software architecture responsibilties.
+I work as the lead of the Analytic Sciences Group (ASG), the R&D team for ARGO Data. We use data science to solve challenging problems in banking and healthcare. I have 10+ years of industry experience building high-volume, distributed transaction processing systems. My academic background includes a PhD in Computer Science and publications in Natural Language Processing, Probabilistic Graphical Models, and Data Mining. I split my time between data science, research engineering, and software architecture responsibilties.
 
 ## Technology & Skills
 
 Engineering
 
-* **Language expertise**: Java, Python, Groovy, C#/.NET, C++14, SQL
+* **Language Expertise**: Java, Python, Groovy, C#/.NET, C++14, SQL
 * **Data Mining, Machine Learning**: jPMML, Mallet, scikit-learn, NumPy, Pandas, Matlib, KNIME, Weka, Factorie, NLTK, Deeplearning4j
 * **Infrastructure**: Spark, Spark Streaming, Hadoop, Elasticsearch, Spring, Spring Boot, Hibernate/JPA, Jooq
 * **Storage**: MSSQL, Oracle, Cassandra, GridGain/Ignite, Kafka, HDFS
 
 Data Science
 
-* **Natural Language Processing**: Grapheme to Phoneme (G2P) transduction, Parsing, Probabilistic Graphical Models, Structured Prediction
-* **Database Systems**: Query Optimization, Optimizing Storage Subsystems for SSDs
+* **Natural Language Processing**: grapheme to phoneme (G2P) transduction, parsing, probabilistic graphical models, structured prediction
+* **Database Systems**: query optimization, optimizing storage subsystems for SSDs
 * **Distributed Systems**: distributed hash tables, routing, distributed two-phase commit
 * **Statistics**: record linkage, classification, logistic regression, regularization, bayesian treatments, hypothesis testing, survival analysis, time-series analysis
 
@@ -31,12 +31,12 @@ Data Science
 
 Analytic Science Group, Lead; Software Architect
 
-* Work with C-level executives and product owners to identify opportunities where intelligent analytic solutions can provide value to our products
+* Collaborate with C-level executives and product owners to identify opportunities where intelligent analytic solutions can provide value to our products
 * Develop strategies to scope, prioritize, and deliver intelligent solutions in line with strategy
 * Lead a team of 5 data scientists and research engineers to execute projects
-* Perform data science tasks such as exploration, visualization, modeling, and experimentation
+* Perform data science tasks, such as exploration, visualization, modeling, and experimentation
 * Engineer production-ready components to deploy analytic solutions into our commercial products
-* Participate in sales support activities to communicate the value and credibility to prospective customers
+* Participate in sales support activities that communicate value and credibility to prospective customers
 * Accountable for design and architecture responsibilities for multiple software projects across the company
 * Performance engineering for database and Java application performance optimization
 * New project team bootstrapping to establish initial design, architecture, and toolchain
@@ -59,9 +59,9 @@ Analytic Science Group, Lead; Software Architect
 
 Software Engineer, II
 
-* Work on a small team of software developers building new versions of the VECTOR:Image Exchange product in production at dozens of top-50 banks in the USA
-* Design and engineer new features working with business analysts, product management, quality assurance, and support to scope and prioritize work 
-* Execute Java and MSSQL Database performance engineering to increase throughput to over 30M transactions per day in a small window of time
+* Worked on a small team of software developers building new versions of the VECTOR:Image Exchange product, which is in production at dozens of top-50 banks in the USA
+* Designed and engineered new features working with business analysts, product management, quality assurance, and support to scope and prioritize work 
+* Executed Java and MSSQL Database performance engineering to increase throughput to over 30M transactions per day in a small window of time
 
 ## Education
 
