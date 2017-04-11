@@ -17,13 +17,13 @@ Engineering
 * **Infrastructure**: Spark, Spark Streaming, Hadoop, Elasticsearch, Spring, Spring Boot, Hibernate/JPA, Jooq
 * **Storage**: MSSQL, Oracle, Cassandra, GridGain/Ignite, Kafka, HDFS
 
-Data Science
+Computer Science
 
-* **Natural Language Processing**: grapheme to phoneme (G2P) transduction, parsing, probabilistic graphical models, structured prediction
+* **Natural Language Processing**: parsing, grapheme to phoneme (G2P) transduction, structured prediction, topic modeling, sentiment anlaysis
+* **Data Mining**: record linkage, clustering, learning to rank, fuzzy matching, Levenshtein automata
+* **Statistics, Learning**: probabilistic graphical models, logistic regression, regularization, Bayesian treatments, hypothesis testing, survival analysis, time-series analysis, neural networks, optimization
 * **Database Systems**: query optimization, optimizing storage subsystems for SSDs
 * **Distributed Systems**: distributed hash tables, routing, distributed two-phase commit
-* **Statistics**: record linkage, classification, logistic regression, regularization, bayesian treatments, hypothesis testing, survival analysis, time-series analysis
-
 
 ## Work Experience
 
@@ -32,7 +32,7 @@ Data Science
 Analytic Science Group, Lead; Software Architect
 
 * Collaborate with C-level executives and product owners to identify opportunities where intelligent analytic solutions can provide value to our products
-* Develop strategies to scope, prioritize, and deliver intelligent solutions in line with strategy
+* Develop strategies to scope, prioritize, and deliver intelligent solutions
 * Lead a team of 5 data scientists and research engineers to execute projects
 * Perform data science tasks, such as exploration, visualization, modeling, and experimentation
 * Engineer production-ready components to deploy analytic solutions into our commercial products
