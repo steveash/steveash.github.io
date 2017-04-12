@@ -13,7 +13,7 @@ I work as the lead of the Analytic Sciences Group (ASG), the R&D team for ARGO D
 Engineering
 
 * **Language Expertise**: Java, Python, Groovy, C#/.NET, C++14, SQL
-* **Data Mining, Machine Learning**: jPMML, Mallet, scikit-learn, NumPy, Pandas, Matlib, KNIME, Weka, Factorie, NLTK, Deeplearning4j
+* **Data Mining, Machine Learning**: jPMML, Mallet, scikit-learn, NumPy, Pandas, Matplotlib, KNIME, Weka, Factorie, NLTK, Deeplearning4j
 * **Infrastructure**: Spark, Spark Streaming, Hadoop, Elasticsearch, Spring, Spring Boot, Hibernate/JPA, Jooq
 * **Storage**: MSSQL, Oracle, Cassandra, GridGain/Ignite, Kafka, HDFS
 
