@@ -6,14 +6,14 @@ date: 2016-10-30
 comments: false
 ---
 
-I work as the lead of the Analytic Sciences Group (ASG), the R&D team for ARGO Data. We use data science to solve challenging problems in banking and healthcare. I have 10+ years of industry experience building high-volume, distributed transaction processing systems. My academic background includes a PhD in Computer Science and publications in Natural Language Processing, Probabilistic Graphical Models, and Data Mining. I split my time between data science, research engineering, and software architecture responsibilties.
+I work as a Senior Engineer on the Core ML team for Amazon.com. The opinions here are my own and do not represent my employer. Previously, I worked as the technical lead of the R&D team for ARGO Data. We used data science to solve challenging problems in banking and healthcare. I have 10+ years of industry experience building high-volume, distributed transaction processing systems. My academic background includes a PhD in Computer Science and publications in Natural Language Processing, Probabilistic Graphical Models, and Data Mining. I split my time between data science, research engineering, and software architecture responsibilties.
 
 ## Technology & Skills
 
 Engineering
 
-* **Language Expertise**: Java, Python, Groovy, C#/.NET, C++14, SQL
-* **Data Mining, Machine Learning**: jPMML, Mallet, scikit-learn, NumPy, Pandas, Matplotlib, KNIME, Weka, Factorie, NLTK, Deeplearning4j
+* **Language Expertise**: Java, Python, Groovy, Scala, C#/.NET, C++14, SQL
+* **Data Mining, Machine Learning**: jPMML, Mallet, scikit-learn, NumPy, Pandas, Matplotlib, KNIME, Weka, Factorie, NLTK, Deeplearning4j, Spark MLLib
 * **Infrastructure**: Spark, Spark Streaming, Hadoop, Elasticsearch, Spring, Spring Boot, Hibernate/JPA, Jooq
 * **Storage**: MSSQL, Oracle, Cassandra, GridGain/Ignite, Kafka, HDFS
 
@@ -27,7 +27,11 @@ Computer Science
 
 ## Work Experience
 
-### ARGO Data (2010-Present)
+### Amazon.com (2017-Present) - Seattle, WA
+
+Senior Software Engineer - Machine Learning, Big Data. Core ML Group.
+
+### ARGO Data (2010-2017) - Memphis, TN
 
 Analytic Science Group, Lead; Software Architect
 
@@ -71,7 +75,7 @@ Software Engineer, II
 * **BA, Computer Science**. Rhodes College. 2006.
 
 ## Publications
-
+* Stephen Ash (2017). **Improving Accuracy of Patient Demographic Matching and Identity Resolution** (Doctoral dissertation). University of Memphis. Retrieved from [https://umwa.memphis.edu/etd/](https://umwa.memphis.edu/etd/).
 * Stephen Ash and David Lin. 2016 (In Press). **Incorporating syllable phonotactics to improve grapheme to phoneme translation**. _Future and Emerging Trends in Language Technologies (FETLT 2016)_.
 * Stephen Ash and David Lin. 2016. **Grapheme to phoneme translation using conditional random fields with re-ranking**. _Proceedings of the 19th International Conference on Text, Speech, and Dialogue (TSD 2016)_, 314-325. [http://link.springer.com/chapter/10.1007/978-3-319-45510-5_36](http://link.springer.com/chapter/10.1007/978-3-319-45510-5_36)
 * Stephen Ash and David Lin. 2015. **Embracing the sparse, noisy, and interrelated aspects of patient demographics for use in clinical medical record linkage**.  _AMIA Summits on Clinical Research Informatics 2015_, 425-429. [https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4525218/](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4525218/)
