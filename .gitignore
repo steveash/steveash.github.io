@@ -1,4 +1,10 @@
 
+### Astro / Node ###
+node_modules/
+dist/
+.astro/
+npm-debug.log*
+
 # Created by https://www.gitignore.io/api/jekyll,ruby
 
 ### Jekyll ###

@@ -1,0 +1,54 @@
+---
+import "../styles/global.css";
+
+interface Props {
+  title: string;
+  description: string;
+  ogImage?: string;
+}
+
+const { title, description, ogImage = "/favicon.png" } = Astro.props;
+const canonical = new URL(Astro.url.pathname, Astro.site).href;
+const ogImageUrl = new URL(ogImage, Astro.site).href;
+
+// GA4: replace G-XXXXXXXXXX with your Measurement ID, or remove this block.
+const GA_ID = "G-VRLC5PYCRF";
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonical} />
+    <link rel="icon" href="/favicon.png" type="image/png" />
+    <link rel="icon" href="/favicon.ico" sizes="any" />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:image" content={new URL("/avatar.png", Astro.site).href} />
+    <meta name="twitter:card" content="summary" />
+
+    {
+      GA_ID !== "G-XXXXXXXXXX" && (
+        <>
+          <script async src={`https://www.googletagmanager.com/gtag/js?id=${GA_ID}`} />
+          <script is:inline define:vars={{ GA_ID }}>
+            window.dataLayer = window.dataLayer || []; function gtag()
+            {dataLayer.push(arguments)}
+            gtag("js", new Date()); gtag("config", GA_ID);
+          </script>
+        </>
+      )
+    }
+  </head>
+  <body>
+    <main>
+      <slot />
+    </main>
+  </body>
+</html>
